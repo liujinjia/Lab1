@@ -1,0 +1,66 @@
+Scenario : Booking an Airbnb
+Description : A tourist wants to book a house on Airbnb app.
+
+Object: tourist
+       State: name,phoneNo,age
+       Behavior: visitApp(), findHouse(), bookHouse(), payMoney()
+Object: house
+        State: address, price
+        Behavior: getAddress(), getPrice()
+Object: app
+        State: Collection of house
+        Behavior: displayAvailableHouses(), bookHouseToTourist(), recieveMoney()
+Object: money
+        State: amount
+
+    class tourist{
+           String name;
+           int phoneNo;
+           int age;
+           void visitApp(App ap){}
+           findHouse(House houses[]){}
+           void bookHouse(House h){}
+           payMoney(Money m){}
+
+    }
+
+    class house{
+           String address;
+           float price;
+            String getAddress(){}
+            float getPrice(){}
+    }
+
+
+    class app{
+           House[] houses;
+           House[] displayAvailableHouses(){}
+           void bookHouseToTourist(){}
+           void recieveMoney(Tourist t, Money m){}
+    }
+
+
+    class money{
+    float amount;
+    }
+
+
+    class bookAirbnb{
+           App a = new App();
+
+           Tourist Jack = new Tourist();
+           Jack.name = "Jack";
+           Jack.phoneNo = 2063078245;
+           Jack.visitApp(a);
+
+           House h = new House();
+           h.address = "Seattle";
+           h.price = 215.5;
+           Money m = new Money();
+
+           Jack.bookHouse(h);
+           Jack.payMoney(m);
+           a.recieveMoney(Jack, m);
+
+
+    }

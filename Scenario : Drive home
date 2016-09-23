@@ -1,0 +1,66 @@
+Scenario : Drive home
+Description : A student is driving home from school.
+
+Object: Student
+        State: name, driverLicense
+        Behavior: getName(), getLicense()
+
+Object: Car
+        State: brand, carLicense, route
+        Behavior: getBrand(), getLicense(), calculateRoute(), startVoid(), drive()
+
+Object: Place
+        State: isDestination, address, zip
+        Behavior: checkDestination(), getAddress(), getZip()
+
+
+
+class student{
+	String name,driverLicense;
+	String getName(){};
+	String getLicense(){};
+}
+
+class car{
+	String brand, carLicense;
+	String[] route;
+	String getBrand(){};
+	String getLicense(){};
+	String[] calculateRoute(place origin, place destination){};
+	void startVoid(student owner){};
+	void drive(String[] route){};
+}
+class place{
+	boolean isDestination; //Mark if this place is an origin or destination.
+	String address;
+	int zip;
+	boolean checkDestination(){};
+	String getAddress(){};
+	int getZip(){};
+}
+class drivingHome{
+	publick static void main(String arg[]){
+		student me = new student();
+		me.name="Jinjia";
+		me.driverLicense="12345678";
+
+		car ride = new car();
+		ride.brand = "Mini Cooper";
+		ride.carLicense = "SAMPLE";
+		
+		place school = new place();
+		school.address = "401 Terry Ave N";
+		school.zip = 98109;
+		school.isDestination=false;
+
+		place home = new place();
+		home.address = "535 Pontius Ave N";
+		home.zip = 98109;
+		home.isDestination=true;
+
+		ride.start(me);
+		ride.route = ride.calculateRoute(school, home);
+		ride.drive(ride.route);
+
+	}
+}

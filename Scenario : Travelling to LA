@@ -1,0 +1,57 @@
+Scenario : Travelling to LA
+Description : A tourist is trying to find the cheapest flight to LA.
+
+Object: Tourist
+        State: name
+        Behaviour: visitFlightWebsite(), findAllFlightToLA(), comparePrice()
+
+Object: flightWebsite
+        State: Collection of flights
+        Behaviour: displayAllFlightToLA(), displayPrice()
+
+Object: flight
+        State: price, flightDestination
+        Behaviour: getPrice(), getFlightDestination()
+
+
+class Tourist{
+	String name;
+	void visitFlightWebsite(Website web){}
+	Flight findAllFlightToLA(Flight flights[]){}
+	comparePrice(Price prices[]){}
+}
+
+class FlightWebsite{
+	 Flights[] flight;
+	 displayAllFlightToLA(Tourist t, Flight f){}
+	 displayPrice(Tourist t, Money m){}
+
+}
+
+
+class Flight{
+	float price;
+	String flightDestination;
+	void getPrice();
+	void getFlightDestination();
+}
+
+
+
+class Travel{
+    FlightWebsite web = new FlightWebsite();
+
+	Flight a = new Flight();
+	Flight b = new Flight();
+
+	b.flightDestination = a.flightDestination = "LA";
+	b.price = 100;
+	a.price = 120;
+
+	Tourist Jack = new Tourist();
+	Jack.name = "Jack";
+	Jack.visitFlightWebsite(web);
+	Jack.findAllFlightToLA(Flight flights[]);
+	Jack.comparePrice(a,b);
+
+}

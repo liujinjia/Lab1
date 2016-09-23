@@ -1,0 +1,77 @@
+Scenario : Pay tuition
+	Description : A student wants to pay his tuition through myNEU account.
+
+Object : Student
+   State: name, account,
+   Behavior: visitWebsite(), payTuition(), findDetailTuition
+Object: NeuWebsite
+     State: Tuition
+     Behavior: displayDetailTuition(), acceptMoneyFromStudent()
+Object: Tuition
+     State: className,creditMoney,credit
+     Behavior: getDetail()
+Object: Money
+      State: amount
+
+      
+class Student{
+		String name;
+		String account;
+		void visitWebsite(NeuWebsite nw){}
+		Tuition findDetailTuition(Book books[], NeuWebsite nw){}
+		Money payMoneyToWebsite(NeuWebsite nw){}
+		
+	}
+	
+
+	class NeuWebsite{
+		Student[] students; //Array of Book
+		Tuition[] displayDetailTuition(){}
+		void acceptMoneyFromStudent(Student s, Money money){}
+				
+	}
+	
+
+	class Tuition{
+		String className;
+		int crreditMoney;
+                 int credit;
+		String getDetail(){}
+	
+
+	}
+	
+
+	class Money{
+		float amount;
+	}
+
+class NeuWebsite{
+public static void main(String args[]){
+ NeuWebsite nw = new NeuWebsite();
+
+Tuition Java = new Tuition();
+Java.className = “Java”;
+Java.creditMoney = 1250;
+Java.credit = 4;
+Tuition Database = new Tuition();
+Database.className = “Database”;
+Database.creditMoney = 1250;
+Database.credit = 4;
+Tuition[] tuitions = {Java, Database};
+
+ Student Jack = new Student();
+Jack.name = “Jack”;
+Jack.account = “234”;
+Jack.visitWebsite(nw);
+Tuition[] tuitions = neu.displayDetailTuition();
+
+Tuition tuition = Jack.findDetailTuition(tuitions,nw);
+Money money = Jack.payMoneytoWebsite(nw);
+neu.acceptMoneyFromStudent(Jack,money);
+
+
+
+
+}
+}

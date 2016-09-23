@@ -1,0 +1,71 @@
+Scenario : Order for delivery
+Description : A consumer is going to order a delivery through phone calls.
+
+Object: consumer
+       State: String name;
+              String address;
+              int phoneNo;
+       Behavior: void makePhoneCall();
+                 selectDelivery();
+                 payDelivery();
+
+
+Object: deliveryCompany
+        State: String name;
+               int phoneNo;
+        Behavior: recievePhoneCall();
+                  makeDelivery();
+                  recievePay();
+Object: delivery
+        State: int distance;
+               int moneyPay;
+               String deliveryName;
+               
+
+class consumer{
+	String name;
+	String address;
+	int phoneNo;
+	void makePhoneCall(int phoneNo);
+	selectDelivery(delivery del);
+}
+
+class deliveryCompany{
+	String name;
+	int phoneNo;
+	void recievePhoneCall();
+	makeDelivery(delivery del);
+	recievePay(money m);
+}
+
+class delivery{
+	int distance;
+	int money;
+	String deliveryName;
+	void searchDelivery(delivery del);
+}
+
+public class OrderDelivery{
+
+    Delivery del = new Delivery();
+    del.distance = 12;
+    del.moneyPay = 23;
+    del.deliveryName = "DHL";
+
+    DeliveryCompany dc = new DeliveryCompany();
+    dc.name = "DHL";
+    dc.phoneNo = 2063071234;
+   
+
+	Consumer Jack = new Consumer();
+	Jack.name = "Jack" ;
+	Jack.address = "Seattle" ;
+	Jack.phoneNo = 2063078245 ;
+
+	Jack.makePhoneCall(dc.phoneNo);
+	Jack.selectDelivery(DHL);
+	dc.makeDelivery(DHL);
+	dc.recievePay(del.moneyPay);
+   
+
+}
